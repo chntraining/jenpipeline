@@ -6,29 +6,27 @@ pipeline {
             steps {
                 echo 'Cloning the GitHub repository...'
                 git branch: 'main', url: 'https://github.com/chntraining/jenpipeline.git', credentialsId: 'git.cred'
-
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                sh 'chmod +x hello.sh'
-                sh './hello.sh'
+                bat 'hello.bat'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'echo "Tests passed!"'
+                bat 'echo "Tests passed!"'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                sh 'echo "Deployment successful!"'
+                bat 'echo "Deployment successful!"'
             }
         }
     }
