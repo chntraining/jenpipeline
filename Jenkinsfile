@@ -5,7 +5,8 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo 'Cloning the GitHub repository...'
-                git 'https://github.com/chntraining/jenpipeline.git'
+                git branch: 'main', url: 'https://github.com/chntraining/jenpipeline.git', gitTool: 'Default',credentialsId: 'mygithubcred'
+
             }
         }
 
